@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  money-api:
+    image: 'money:latest'
+    build:
+      context: ./money/money-api
+    container_name: money-api
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/springtesting
+      - SPRING_DATASOURCE_USERNAME=springtesting
+      - SPRING_DATASOURCE_PASSWORD=springtesting
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    image: 'postgres:14-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=springtesting
+      - POSTGRES_PASSWORD=springtesting

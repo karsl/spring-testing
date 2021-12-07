@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/springtesting
+    username: springtesting
+    password: springtesting
+  jpa:
+    hibernate:
+      ddl-auto: update
